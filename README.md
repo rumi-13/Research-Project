@@ -9,15 +9,17 @@ Undergraduate dissertation project focused on improving explainability for OCT-b
 ## Supervisor
 - Dr. Tawseef Ahmed Teli
 
-## Dissertation Summary
-Deep learning models can classify retinal OCT scans with high accuracy, but standard Grad-CAM explanations are often coarse and unstable. This work proposes a **Multi-Layer Fused Grad-CAM** framework that combines Grad-CAM maps from multiple ResNet50 depths and weights them using confidence retention.
+## Research Summary
+### Introduction
+Deep learning models can classify retinal OCT scans with high accuracy, but standard Grad-CAM explanations are often coarse and unstable. This project improves interpretability by introducing a **Multi-Layer Fused Grad-CAM** framework for OCT-based retinal disease classification.
 
-The dissertation addresses three core issues in prior explainability methods:
+### Problem Statement
+The dissertation addresses three core limitations in prior explainability methods:
 - low spatial precision from final-layer-only attribution,
 - weak robustness under perturbation,
 - limited quantitative validation of explanation quality.
 
-## Proposed Method (from the dissertation)
+### Proposed Methodology
 1. Train/evaluate a ResNet50-based classifier on OCT2017 (CNV, DME, DRUSEN, NORMAL).
 2. Generate Grad-CAM maps from three CNN depths (Layer 2, Layer 3, Layer 4).
 3. Compute confidence-retention scores by masking each map and re-running inference.
@@ -25,13 +27,18 @@ The dissertation addresses three core issues in prior explainability methods:
 5. Fuse maps into a single heatmap.
 6. Evaluate robustness by adding Gaussian noise (σ = 0.007, 0.008, 0.009) and measuring SSIM.
 
-## Key Findings (dissertation)
+### Results
 - Fused Grad-CAM maps are more anatomically focused than standard final-layer Grad-CAM.
 - Fused explanations remain more stable under noise across all four classes.
 - SSIM gains (Fused vs Standard) increase with noise level, indicating stronger robustness:
   - σ = 0.007: +0.0157 to +0.0196
   - σ = 0.008: +0.0185 to +0.0264
   - σ = 0.009: +0.0233 to +0.0321
+
+### References
+- Rashid, A., Malik, F. A. (2024). *A Robust Pixel-Level Interpretability in OCT-based Retinal Disease Classification* (Undergraduate Dissertation).  
+  Available in this repository: `/Docs/Research-Dissertation.pdf`
+- Selvaraju, R. R., Cogswell, M., Das, A., Vedantam, R., Parikh, D., & Batra, D. (2017). *Grad-CAM: Visual Explanations from Deep Networks via Gradient-based Localization*. ICCV.
 
 ## Repository Structure
 - `/Docs/Research-Dissertation.pdf` — full dissertation
